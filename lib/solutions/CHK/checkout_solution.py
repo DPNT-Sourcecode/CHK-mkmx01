@@ -30,15 +30,13 @@ def checkout(skus):
     group_items_by_number = {char: nr_of_items[char] for char in group_items }
 
     for item in group_items_by_number:
-        while rest_group_items > 0 and nr_of_items[item] > 0:
-            print(rest_group_items)
+        while rest_group_items >= 0 :
+            max_removed_items = 0
+            while max_removed_items < 3 and nr_of_items[item] > 0:
+                nr_of_items[item] -= 1
+                max_removed_items +=1
             nr_of_items_of_group_discount -=1
-            nr_of_items[item] -= 1
             rest_group_items = nr_of_items_of_group_discount // 3
-            group_items_by_number = {char: nr_of_items[char] for char in group_items }
-            print(group_items_by_number)
-            print(rest_group_items)
-           
            
    for item,count in nr_of_items.items():
        if item in offers: 
@@ -67,3 +65,4 @@ def reduce_same_item(nr_of_items, main_item, initial_needed_ammount):
     return nr_of_items
 
 checkout("SSSZ")
+
