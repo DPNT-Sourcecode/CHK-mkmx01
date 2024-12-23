@@ -29,3 +29,5 @@ def checkout(skus):
             round_low = number_of_items - remainder
             offer_return = round_low * 45 
             return (remainder * 30) + offer_return
+    
+    return -1
