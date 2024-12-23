@@ -23,9 +23,11 @@ def checkout(skus):
        if item in offers: 
            for count_number,count_price in sorted(offers[item],reverse=True):
                total += (count // count_number) * count_price
-               total += (count % count_number) * items_with_prices[item]
+               count % count_number
+           total += count * items_with_prices[item]  
        else:
             total += count * items_with_prices[item] 
         
             
    return total
+
