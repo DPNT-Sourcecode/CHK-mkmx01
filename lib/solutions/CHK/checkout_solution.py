@@ -51,9 +51,8 @@ def reduce_item(nr_of_items, main_item,reducable_item, initial_needed_ammount):
     return nr_of_items
 
 def reduce_same_item(nr_of_items, main_item, initial_needed_ammount):
-    if main_item in nr_of_items  and nr_of_items[main_item] >=initial_needed_ammount:
+    if main_item in nr_of_items  and nr_of_items[main_item] >initial_needed_ammount:
        free_item = nr_of_items[main_item] // initial_needed_ammount
        nr_of_items[main_item] = nr_of_items[main_item]-free_item
     
     return nr_of_items
-
