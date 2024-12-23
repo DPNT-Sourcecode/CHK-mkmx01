@@ -27,6 +27,8 @@ def checkout(skus):
        free_m_item = nr_of_items["N"] // 3
        nr_of_items["M"] = max(0,nr_of_items["M"]-free_m_item)
        
+   nr_of_items = reduce_item(nr_of_items,"R","Q",3)
+       
    total = 0
    for item,count in nr_of_items.items():
        if item in offers: 
@@ -38,4 +40,12 @@ def checkout(skus):
             total += count * items_with_prices[item] 
         
    return total
+
+
+def reduce_item(nr_of_items, main_item,reducable_item, initial_needed_ammount):
+    if main_item in nr_of_items and reducable_item in nr_of_items and nr_of_items[main_item] >=initial_needed_ammount:
+       free_item = nr_of_items[main_item] // initial_needed_ammount
+       nr_of_items[reducable_item] = max(0,nr_of_items[reducable_item]-free_item)
+    
+    return nr_of_items
 
