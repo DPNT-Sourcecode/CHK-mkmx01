@@ -14,7 +14,7 @@ def checkout(skus):
 
    nr_of_items = Counter(skus)
    
-   if "E" in nr_of_items and "B" in nr_of_items:
+   if "E" in nr_of_items and "B" in nr_of_items and nr_of_items["E"] >=2:
        free_b_item = nr_of_items["E"] // 2
        nr_of_items["B"] = max(0,nr_of_items["B"]-free_b_item)
        
@@ -29,8 +29,3 @@ def checkout(skus):
         
             
    return total
-
-
-
-
-
