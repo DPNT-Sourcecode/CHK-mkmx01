@@ -37,10 +37,13 @@ def deploy_a_solution(nr_of_items):
    if nr_of_items >=5:
        total += (nr_of_items // 5) * 200 
        remaining_number = nr_of_items % 5
+       total += total_based_offer(remaining_number,3,130,50)
        
 
 def total_based_offer(nr_of_items,offer_nr,offer_price,price_wo_offer):
     total = 0
     total += (nr_of_items // offer_nr) * offer_price 
     remaining_number = nr_of_items % offer_nr
+    total += remaining_number * price_wo_offer
+    return total
 
