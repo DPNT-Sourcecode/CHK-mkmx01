@@ -27,20 +27,3 @@ def checkout(skus):
        else:
             total += count * items_with_prices[item] 
    return total
-
-
-def a_item_offers(count: int):
-    offers = [(5,200),(3,130)]
-    total = 0
-    if count >  2:
-        for count_number,count_price in sorted(offers,reverse=True):
-            total += (count // count_number) * count_price
-            total += (count % count_number) * 50
-    else:
-        total += count * 50
-    return total
-
-
-
-
-
