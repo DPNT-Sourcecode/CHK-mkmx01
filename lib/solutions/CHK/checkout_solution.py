@@ -23,14 +23,7 @@ def checkout(skus):
        if item in offers: 
            for count_number,count_price in sorted(offers[item],reverse=True):
                total += (count // count_number) * count_price
-               print(count // count_number)
-               print(count)
-               print(count_number)
-               print(count_price)
-               print(total)
                count %= count_number
-               print("'''''")
-               print(count)
            total += count * items_with_prices[item]
        else:
             total += count * items_with_prices[item] 
@@ -39,6 +32,3 @@ def checkout(skus):
    return total
 
 checkout("AAA")
-
-
-
