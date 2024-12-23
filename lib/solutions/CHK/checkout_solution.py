@@ -31,3 +31,16 @@ def checkout(skus):
             
    return total
 
+
+def deploy_a_solution(nr_of_items):
+   total = 0 
+   if nr_of_items >=5:
+       total += (nr_of_items // 5) * 200 
+       remaining_number = nr_of_items % 5
+       
+
+def total_based_offer(nr_of_items,offer_nr,offer_price,price_wo_offer):
+    total = 0
+    total += (nr_of_items // offer_nr) * offer_price 
+    remaining_number = nr_of_items % offer_nr
+
