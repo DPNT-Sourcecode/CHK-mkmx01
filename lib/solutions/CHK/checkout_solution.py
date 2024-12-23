@@ -8,7 +8,7 @@ from typing import Counter
 def checkout(skus):
    items_with_prices = {"A" : 50,"B":30,"C":20,"D":15,"E":40,"F":10,"G":20,"H":10,"I":35,"J":60,"K":80,"L":90,"M":15,"N":40,"O":10,"P":50,
                         "Q":30,"R":50,"S":30,"T":20,"U":40,"V":50,"W":20,"X":90,"Y":10,"Z":50}
-   offers = {"A":[(5,200),(3,130)],"B":[(2,45),],"H":[(10,80),(5,45)],"K":[(2,150)],"P":[(5,200)]}
+   offers = {"A":[(5,200),(3,130)],"B":[(2,45),],"H":[(10,80),(5,45)],"K":[(2,150)],"P":[(5,200)],"Q":[(3,80)],"V":[(3,130),(2,90)]}
    
    if not all(char in items_with_prices for char in skus):
     return -1
@@ -22,6 +22,10 @@ def checkout(skus):
    if "F" in nr_of_items and nr_of_items["F"] >=3:
        free_f_item = nr_of_items["F"] // 3
        nr_of_items["F"] = nr_of_items["F"]-free_f_item
+    
+   if "N" in nr_of_items and "M" in nr_of_items and nr_of_items["N"] >=3:
+       free_m_item = nr_of_items["N"] // 3
+       nr_of_items["M"] = max(0,nr_of_items["M"]-free_m_item)
        
    total = 0
    for item,count in nr_of_items.items():
@@ -34,3 +38,4 @@ def checkout(skus):
             total += count * items_with_prices[item] 
         
    return total
+
