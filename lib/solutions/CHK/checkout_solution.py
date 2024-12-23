@@ -21,10 +21,17 @@ def checkout(skus):
    total = 0
    for item,count in nr_of_items.items():
        if item in offers: 
-           for count_number,count_price in sorted(offers[item],reverse=False):
+           for count_number,count_price in sorted(offers[item],reverse=True):
                total += (count // count_number) * count_price
+               print(count // count_number)
+               print(count)
+               print(count_number)
+               print(count_price)
+               print(total)
                count % count_number
-           total += count * items_with_prices[item]  
+           total += (count // count_number) * count_price
+           count % count_number
+           total += count * items_with_prices[item] 
        else:
             total += count * items_with_prices[item] 
         
@@ -32,4 +39,5 @@ def checkout(skus):
    return total
 
 checkout("AAA")
+
 
