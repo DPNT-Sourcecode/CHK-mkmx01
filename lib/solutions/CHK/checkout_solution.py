@@ -28,6 +28,7 @@ def checkout(skus):
        nr_of_items["M"] = max(0,nr_of_items["M"]-free_m_item)
        
    nr_of_items = reduce_item(nr_of_items,"R","Q",3)
+   nr_of_items = reduce_same_item(nr_of_items,"U",3)
        
    total = 0
    for item,count in nr_of_items.items():
@@ -46,6 +47,13 @@ def reduce_item(nr_of_items, main_item,reducable_item, initial_needed_ammount):
     if main_item in nr_of_items and reducable_item in nr_of_items and nr_of_items[main_item] >=initial_needed_ammount:
        free_item = nr_of_items[main_item] // initial_needed_ammount
        nr_of_items[reducable_item] = max(0,nr_of_items[reducable_item]-free_item)
+    
+    return nr_of_items
+
+def reduce_same_item(nr_of_items, main_item, initial_needed_ammount):
+    if main_item in nr_of_items  and nr_of_items[main_item] >=initial_needed_ammount:
+       free_item = nr_of_items[main_item] // initial_needed_ammount
+       nr_of_items[main_item] = nr_of_items[main_item]-free_item
     
     return nr_of_items
 
