@@ -27,10 +27,11 @@ def checkout(skus):
    total += (nr_of_items_of_group_discount // 3) * group_offer
    rest_group_items = nr_of_items_of_group_discount % 3
    
-   for item in sorted(group_items, key= lambda x:-items_with_prices[x]):
-       while rest_group_items > 0 and nr_of_items[item] > 0:
-           nr_of_items[item] -= 1
-           rest_group_items -= 1
+   if rest_group_items > 0:
+    for item in sorted(group_items, key= lambda x:-items_with_prices[x]):
+        while rest_group_items > 0 and nr_of_items[item] > 0:
+            nr_of_items[item] -= 1
+            rest_group_items -= 1
            
            
    for item,count in nr_of_items.items():
@@ -60,6 +61,7 @@ def reduce_same_item(nr_of_items, main_item, initial_needed_ammount):
     return nr_of_items
 
 checkout("S")
+
 
 
 
