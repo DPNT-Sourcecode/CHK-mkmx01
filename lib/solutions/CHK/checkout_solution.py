@@ -20,7 +20,7 @@ def checkout(skus):
    nr_of_items = reduce_item(nr_of_items,"N","M",3)
    nr_of_items = reduce_item(nr_of_items,"E","B",2)
    nr_of_items = reduce_same_item(nr_of_items,"U",3)
-   nr_of_items = reduce_same_item(nr_of_items,"F",2)
+   nr_of_items = reduce_same_item(nr_of_items,"F",3)
        
    total = 0
    nr_of_items_of_group_discount = sum(nr_of_items[product] for product in group_items)
@@ -62,3 +62,4 @@ def reduce_same_item(nr_of_items, main_item, initial_needed_ammount):
     return nr_of_items
 
 checkout("S")
+
