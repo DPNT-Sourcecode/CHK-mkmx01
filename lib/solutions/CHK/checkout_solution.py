@@ -20,7 +20,7 @@ def checkout(skus):
    
    if "F" in nr_of_items and nr_of_items["F"] >=3:
        free_f_item = nr_of_items["F"] // 3
-       nr_of_items["B"] = nr_of_items["B"]-free_f_item
+       nr_of_items["F"] = nr_of_items["F"]-free_f_item
        
    total = 0
    for item,count in nr_of_items.items():
@@ -32,7 +32,4 @@ def checkout(skus):
        else:
             total += count * items_with_prices[item] 
         
-   print(total) 
    return total
-
-checkout("FFF")
