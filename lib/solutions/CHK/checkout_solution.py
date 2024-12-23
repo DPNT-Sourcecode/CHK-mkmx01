@@ -23,6 +23,9 @@ def checkout(skus):
    nr_of_items = reduce_same_item(nr_of_items,"F",2)
        
    total = 0
+   nr_of_items_of_group_discount = sum(nr_of_items[product] for product in group_items)
+   total += (nr_of_items_of_group_discount // 3) * group_offer
+   rest_group_items = nr_of_items_of_group_discount % 3
    for item,count in nr_of_items.items():
        if item in offers: 
            for count_number,count_price in sorted(offers[item],reverse=True):
@@ -48,4 +51,5 @@ def reduce_same_item(nr_of_items, main_item, initial_needed_ammount):
        nr_of_items[main_item] = nr_of_items[main_item]-free_item
     
     return nr_of_items
+
 
