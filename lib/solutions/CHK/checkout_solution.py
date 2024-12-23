@@ -6,15 +6,15 @@ from typing import Counter
 
 
 def checkout(skus):
-   items = ["A","B","C","D","E"]
-   if not all(char in items for char in skus):
+   items_with_prices = {"A" : 50,"B":30,"C":20,"D":15,"E":40}
+   if not all(char in items_with_prices for char in skus):
     return -1
 
    nr_of_items = Counter(skus)
    total = 0
    for item,count in nr_of_items.items():
        if item == 'C':
-           total += count * 20
+           total += count * items_with_prices[item]
        if item == 'D':
            total += count * 15
        if item == "A":
@@ -23,4 +23,9 @@ def checkout(skus):
        if item == "B":
           total += (count // 2) * 45
           total += (count % 2) * 30
+       if item == "E":
+           
    return total
+
+
+
