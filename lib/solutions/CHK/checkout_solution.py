@@ -21,40 +21,15 @@ def checkout(skus):
    total = 0
    for item,count in nr_of_items.items():
        if item in offers: 
-           if item == "A":
-               total += deploy_a_solution(count)
-           for count_number,count_price in sorted(offers[item],reverse=True):
+           for count_number,count_price in sorted(offers[item],reverse=False):
                total += (count // count_number) * count_price
                count % count_number
            total += count * items_with_prices[item]  
        else:
             total += count * items_with_prices[item] 
         
-            
+   print(total) 
    return total
-
-
-def deploy_a_solution(nr_of_items):
-   total = 0 
-   if nr_of_items >=5:
-       total += (nr_of_items // 5) * 200 
-       remaining_number_of_a = nr_of_items % 5
-       total += total_based_offer(remaining_number_of_a,3,130,50)
-   else:
-       total += total_based_offer(remaining_number_of_a,3,130,50)
-   return total
-
-
-def total_based_offer(nr_of_items,offer_nr,offer_price,price_wo_offer):
-    total = 0
-    percentage=nr_of_items % offer_nr
-    if percentage == 0:
-        total += (nr_of_items // offer_nr) * offer_price 
-        remaining_number_of_total= nr_of_items % offer_nr
-        total += remaining_number_of_total * price_wo_offer
-    else: 
-        total += nr_of_items * price_wo_offer
-    return total
 
 checkout("AAA")
 
