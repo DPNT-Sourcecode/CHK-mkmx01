@@ -65,5 +65,3 @@ def reduce_same_item(nr_of_items, main_item, initial_needed_ammount):
     return nr_of_items
 
 checkout("SSSZ")
-
-
