@@ -35,3 +35,7 @@ def checkout(skus):
    return total
 
 
+def a_item_offers(count: int):
+    offers = [(5,200),(3,130)]
+
+
