@@ -14,21 +14,12 @@ def checkout(skus):
     return -1
 
    nr_of_items = Counter(skus)
-   
-   if "E" in nr_of_items and "B" in nr_of_items and nr_of_items["E"] >=2:
-       free_b_item = nr_of_items["E"] // 2
-       nr_of_items["B"] = max(0,nr_of_items["B"]-free_b_item)
-   
-   if "F" in nr_of_items and nr_of_items["F"] >=3:
-       free_f_item = nr_of_items["F"] // 3
-       nr_of_items["F"] = nr_of_items["F"]-free_f_item
-    
-   if "N" in nr_of_items and "M" in nr_of_items and nr_of_items["N"] >=3:
-       free_m_item = nr_of_items["N"] // 3
-       nr_of_items["M"] = max(0,nr_of_items["M"]-free_m_item)
        
    nr_of_items = reduce_item(nr_of_items,"R","Q",3)
+   nr_of_items = reduce_item(nr_of_items,"N","M",3)
+   nr_of_items = reduce_item(nr_of_items,"E","B",2)
    nr_of_items = reduce_same_item(nr_of_items,"U",3)
+   nr_of_items = reduce_same_item(nr_of_items,"F",2)
        
    total = 0
    for item,count in nr_of_items.items():
