@@ -6,7 +6,7 @@ from typing import Counter
 
 
 def checkout(skus):
-   items = ["A","B","C","D"]
+   items = ["A","B","C","D","E"]
    if not all(char in items for char in skus):
     return -1
 
